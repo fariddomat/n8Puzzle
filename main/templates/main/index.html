@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+{%load static%}
+<html>
+
+<head>
+    <title>n8Puzzle</title>
+    <style>
+        body {
+            margin: 5px 45px;
+            padding: 25px;
+            background: #28ee9b;
+            text-align: right;
+        }
+        .result {
+            background: #fff;
+            color: black;
+            padding: 2px 16px;
+            margin: 2px 25px 10px 0px;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            width: fit-content;
+            width: 90%;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            width: 100%;
+            display: inline;
+            float: left;
+            margin-top: 25px;
+        }
+        .tab {
+            width: 100%;
+            display: inline;
+            float: left;
+        }
+        .content {
+            display: block;
+            width: 50%;
+            float: right;
+        }
+
+   
+
+        label {
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        input {
+            /* margin: 10px 50px 20px; */
+            height: 35px;
+            width: 25px;
+            padding: 0 15px;
+            /* border: solid 5px #00e38c; */
+        }
+
+        .btn {
+            padding: 12px;
+            background: #40e300;
+            /* width: 200px; */
+            margin-left: 50px;
+            margin-top: 25px;
+        }
+
+        .row {
+            width: 100%;
+            margin-left: 25px;
+            display: inline-flex;
+        }
+
+        .col-lg-6 {
+            width: 50%;
+            float: right;
+        }
+    </style>
+</head>
+
+<body dir="rtl">
+    <div class="content">
+        <h1>وظيفة الذكاء الاصطناعي</h1>
+    <h2>خوارزمية حل لعبة القطع الثمانية</h2>
+    </div>
+    <div class="content"><h2 dir="rtl">ال id الخاص بالطلاب
+        <br>azhar_132382
+        <br>mohammed_majid_135997
+        <br>rana_113781
+        <br>mazen_134855
+    </h2></div>
+    <div class="container">
+        <div class="tab">
+
+            <div class="content ">
+                <form method="POST" action="/" dir="">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label for="" class="row">مصفوفة البداية</label>
+                            <div class="row">
+
+                                <input type="text" value="_" name="start">
+                                <input type="text" value="2" name="start">
+                                <input type="text" value="1" name="start">
+                            </div>
+                            <div class="row">
+
+                                <input type="text" value="3" name="start">
+                                <input type="text" value="5" name="start">
+                                <input type="text" value="4" name="start">
+                            </div>
+                            <div class="row">
+
+                                <input type="text" value="6" name="start">
+                                <input type="text" value="8" name="start">
+                                <input type="text" value="7" name="start">
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-6">
+                            <label for="" class="row"> مصفوفة الهدف</label>
+                            <div class="row">
+
+                                <input type="text" value="3" class="goal" name="goal">
+                                <input type="text" value="2" class="goal" name="goal">
+                                <input type="text" value="1" class="goal" name="goal">
+                            </div>
+                            <div class="row">
+
+                                <input type="text" value="6" class="goal" name="goal">
+                                <input type="text" value="5" class="goal" name="goal">
+                                <input type="text" value="4" class="goal" name="goal">
+                            </div>
+                            <div class="row">
+
+                                <input type="text" value="_" class="goal" name="goal">
+                                <input type="text" value="8" class="goal" name="goal">
+                                <input type="text" value="7" class="goal" name="goal">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button class="btn" type="submit">ابحث عن حل</button>
+                </form>
+            </div>
+
+            <div class="col-lg-6">
+                {% if data %}
+                <div class="result">
+                    {{data|linebreaks}}
+                </div>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
